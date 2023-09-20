@@ -1,6 +1,17 @@
 import React from 'react';
 
-function RecipesList({ recipes, removeRecipe }) {
+function RecipesList({ recipes, onRemove }) {
+
+    function getImageClass(imagePath) {
+        switch (imagePath) {
+            case "/images/cinnamon-buns.jpg": return "img-fluid cinnamon-bun-image";
+            case "/images/coffee-cake.jpg": return "img-fluid coffee-cake-image";
+            case "/images/chocolate-danish.jpg": return "img-fluid chocolate-danish-image";
+            case "/images/chocolate-chip-cookies.jpg": return "img-fluid chocolate-chip-cookies-image";
+            default: return "img-fluid";
+        }
+    }
+    
     return (
         <div>
             {recipes.map((recipe) => (
@@ -9,16 +20,12 @@ function RecipesList({ recipes, removeRecipe }) {
                     <img 
                         src={recipe.image} 
                         alt={recipe.name}
-                        className={
-                            recipe.name === "Cinnamon Buns" ? "img-fluid cinnamon-bun-image" :
-                            recipe.name === "Coffee Cake" ? "img-fluid coffee-cake-image" :
-                            recipe.name === "Chocolate Danish" ? "img-fluid chocolate-danish-image" : "img-fluid"
-                        } 
+                        className={getImageClass(recipe.image)}
                     />
                     <p><strong>Ingredients:</strong> {recipe.ingredients}</p>
                     <p><strong>Directions:</strong> {recipe.directions}</p>
                     <p><strong>Description:</strong> {recipe.description}</p>
-                    <button onClick={() => removeRecipe(recipe.id)}>Remove</button>
+                    <button onClick={() => onRemove(recipe.id)}>Remove</button>
                 </div>
             ))}
         </div>

@@ -55,6 +55,7 @@ function SubmitRecipeForm({ onAddRecipe }) {
                     <option value="/images/cinnamon-buns.jpg">Cinnamon Buns</option>
                     <option value="/images/coffee-cake.jpg">Coffee Cake</option>
                     <option value="/images/chocolate-danish.jpg">Chocolate Danish</option>
+                    <option value="/images/chocolate-chip-cookies.jpg">Chocolate Chip Cookies</option>
                 </select>
             </label>
             <button type="submit">Submit Recipe</button>
